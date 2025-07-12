@@ -14,7 +14,7 @@ class Main extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Mi primer App",
       home: HomeScreen(),
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
     );
   }
 }

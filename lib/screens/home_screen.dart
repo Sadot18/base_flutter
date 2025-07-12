@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int contador = 0;
 
-  void increment(){
+  void _increment() {
     contador++;
     setState(() {});
   }
@@ -22,30 +22,30 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         leading: Icon(Icons.home_work_outlined),
         title: Text("Soy una App"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () {
-              print("Boton de agregar presionado");
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.remove),
-            onPressed: () {
-              print("Boton de eliminar presionado");
-            },
-          ),
-        ],
+        actions: [Text('M'), Icon(Icons.backspace_outlined)],
       ),
       body: CustomHomePage(contador: contador),
-      floatingActionButton: FloatingActionButton(
-        //elevaion: 10,
-        //backgroundColor: Colors.red[50],
-        onPressed: () => increment(),
-        child: Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          SizedBox(
+            width: 1,
+          ),
+          FloatingActionButton(
+            onPressed: () => _increment(),
+            child: Icon(Icons.plus_one),
+          ),
+          FloatingActionButton(
+            onPressed: () => _increment(),
+            child: Icon(Icons.restore_outlined),
+          ),
+          FloatingActionButton(
+            onPressed: () => _increment(),
+            child: Icon(Icons.exposure_minus_1),
+          ),
+        ],
+        
       ),
     );
   }
 }
-
-
